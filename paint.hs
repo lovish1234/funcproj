@@ -296,3 +296,4 @@ triangleFill (x,y) ((Just (x1,y1)):(Nothing):ss) = triangleFill (x,y) ((Just (x1
 triangleFill (x,y) ((Just (x1,y1)):(Just (x2,y2)):ss)
 		= (Color aquamarine (Polygon [(x,y),(x1,y1),(x2,y2)])):(triangleFill (x,y) ((Just (x2,y2)):ss))
 
+-- The code for bmp conversion goes here!
