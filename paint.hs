@@ -295,4 +295,4 @@ triangleFill (x,y) (Nothing:ss) = triangleFill (x,y) ss
 triangleFill (x,y) ((Just (x1,y1)):(Nothing):ss) = triangleFill (x,y) ((Just (x1,y1)):ss)
 triangleFill (x,y) ((Just (x1,y1)):(Just (x2,y2)):ss)
 		= (Color aquamarine (Polygon [(x,y),(x1,y1),(x2,y2)])):(triangleFill (x,y) ((Just (x2,y2)):ss))
-
+-- lets say we made this change
