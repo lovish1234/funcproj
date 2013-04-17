@@ -2,7 +2,7 @@
 {-# OPTIONS -Wall -fno-warn-missing-signatures -fno-warn-incomplete-patterns #-}
 
 import System.Environment
-import Prelude				hiding (compare)
+import Prelude		--		hiding (compare)
 import Control.Monad
 
 
@@ -18,7 +18,7 @@ import Data.Array.Repa.IO.BMP
 
 type Image	= Array U DIM2 Float
 
--- sobel horizontal edge stencil template
+--  horizontal edge stencil template
 gradientX :: Monad m => Image -> m Image
 gradientX img
  	= computeP
@@ -27,7 +27,7 @@ gradientX img
 			-2  0  2
 			-1  0  1 |]
 
--- sobel vertical edge stencil emplate
+--  vertical edge stencil emplate
 gradientY :: Monad m => Image -> m Image
 gradientY img
 	= computeP
@@ -79,7 +79,6 @@ run iterations fileIn fileOut
 	(gX, gY)
 	               <-  go iterations greyImage
 
-	--putStr $ prettyTime tElapsed
 	
 	outImage       <- computeUnboxedP
 	               $  R.map rgb8OfGreyFloat  

@@ -35,6 +35,7 @@ run iterations fileIn fileOut
 		$  readImageFromBMP fileIn
 
 	arrRGB `deepSeqArray` return ()
+-- extract the rgb values of pixel,note that no alpha value in bmp
 	let (arrRed, arrGreen, arrBlue) = U.unzip3 arrRGB
 	let comps                       = [arrRed, arrGreen, arrBlue]
 		
@@ -44,32 +45,6 @@ run iterations fileIn fileOut
         let [arrRed', arrGreen', arrBlue'] = comps'
 	writeImageToBMP fileOut
 	        (U.zip3 arrRed' arrGreen' arrBlue')
-
-
--- adopted from repa library {process,promote,demote}
-process	:: Monad m => Int -> Array U DIM2 Word8 -> m (Array U DIM2 Word8)
-process iterations 
-        = promote >=> blur iterations >=> demote
-
-
-	
-promote	:: Monad m => Array U DIM2 Word8 -> m (Array U DIM2 Double)
-promote arr
- = computeP $ A.map ffs arr
- where	{-# INLINE ffs #-}
-	ffs	:: Word8 -> Double
-	ffs x	=  fromIntegral (fromIntegral x :: Int)
-{-# NOINLINE promote #-}
-
-
-demote	:: Monad m => Array U DIM2 Double -> m (Array U DIM2 Word8)
-demote arr
- = computeP $ A.map ffs arr
-
- where	{-# INLINE ffs #-}
-	ffs 	:: Double -> Word8
-	ffs x	=  fromIntegral (truncate x :: Int)
-{-# NOINLINE demote #-}
 
 
 
@@ -103,6 +78,32 @@ blur !iterations arrInit
 
 
 
+
+
+-- adopted from repa library {process,promote,demote}
+process	:: Monad m => Int -> Array U DIM2 Word8 -> m (Array U DIM2 Word8)
+process iterations 
+        = promote >=> blur iterations >=> demote
+
+
+	
+promote	:: Monad m => Array U DIM2 Word8 -> m (Array U DIM2 Double)
+promote arr
+ = computeP $ A.map ffs arr
+ where	{-# INLINE ffs #-}
+	ffs	:: Word8 -> Double
+	ffs x	=  fromIntegral (fromIntegral x :: Int)
+{-# NOINLINE promote #-}
+
+
+demote	:: Monad m => Array U DIM2 Double -> m (Array U DIM2 Word8)
+demote arr
+ = computeP $ A.map ffs arr
+
+ where	{-# INLINE ffs #-}
+	ffs 	:: Double -> Word8
+	ffs x	=  fromIntegral (truncate x :: Int)
+{-# NOINLINE demote #-}
 
 
 
