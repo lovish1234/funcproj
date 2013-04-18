@@ -1,0 +1,12 @@
+Name - Image Editor
+Project Information  - Application to draw images and manipulate them.
+					 - Provides GUI interface for drawing as well as interpreter support and scripting support for the drawings
+					 - Drawing tools include pencil, brush, line, thickLine, circle, ellipse, rectangle, polyline
+					 - Manipulation can also be done to the drawn picture viz Gaussian Blur, Edge Detection, Image rotation, Resize
+Members - Aman Kumar Singh (Y9227066)
+		- Arbaz Khan (Y9227128)
+		- Guruprasad Nayak (Y9363)
+		- Lovish Kumar (Y9309)
+		- Mayank Dang (Y9332)
+
+GIT repo - https://github.com/lovish1234/funcproj.git

@@ -1,0 +1,18 @@
+For GUI based input:
+
+	For Drawing Images, hold the following keys:
+	r -> Rectangle
+	s -> Square
+	l -> Polyline (Enter to escape)
+	e -> ellipse
+	f -> fill color
+	a -> circle
+
+	Usage:
+	./Main <input file> 
+	OR
+	./Main
+
+For Interpreter/Scripting:
+
+	
