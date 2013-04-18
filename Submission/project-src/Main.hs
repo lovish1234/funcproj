@@ -1,5 +1,29 @@
 {-# LANGUAGE PatternGuards #-}
--- | Simple picture drawing application.
+module Main
+( main,
+  makePicture,
+  makePicture',
+  picRead,
+  showLn,
+  handleEvent,
+  State,
+  stepWorld,
+  sdegrees ,
+  scaleNormalizer,
+  edegrees,
+  marker,
+  dist,
+  between,
+  closerPoint,
+  closestPoint,
+  rotateAndShiftPoint,
+  lineInter,
+  intersections,
+  surround,
+  triangleFill,
+  colorMaker) 
+where
+        
 import Graphics.Gloss.Geometry.Line
 import Graphics.Gloss.Interface.Pure.Game
 import Graphics.Gloss

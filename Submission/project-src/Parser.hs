@@ -1,6 +1,10 @@
 {-# LANGUAGE PatternGuards #-}
 -- | Simple picture drawing application.
 module Parser
+  (func,
+   index,
+   parser,
+   parseIO)   
 where
 import Graphics.Gloss.Geometry.Line
 import Graphics.Gloss.Interface.Pure.Game
