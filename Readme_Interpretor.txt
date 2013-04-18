@@ -1,0 +1,46 @@
+Image Manipulation Program - Interpretor version (through the terminal)
+
+
+Commands supported-
+NOTE: Have an empty .bmp image (included in the folder)
+1. Creating Shapes
+(i) Circle x y r  - Draw a circle of radius r centered at cartesian co-ordinates (x,y)
+(ii) Line (x1,y1) (x2,y2) - Draw a line between the two points
+(iii) Polyline [list of tuples here] - Draw a polyline linking the points in the list
+2. Operations on images
+(i) Flood x y - Fill the space to the nearest boundary with blue color starting at point (x,y)
+
+Note: All the above operations dynamically update the file "temp.bmp"
+
+Data Types- 
+
+1. Commands - Handle Operations on the data . Being used for fillcolor.
+2. Point - Point in cartesian space - a float tuple as a new data type
+3. Picture - Circle - Center-x, Center-y, Radius (x,y are cartesian co-ordinates)
+-- Line - Two tuples of floats (The line between them)
+-- Polyline - Line linking a list of points - Can be used to build Square, Rectangle, Triangle or any general Polygon
+
+
+Functions -
+
+1. rotateAndShiftPoint - Handling Rotations and shift of axes - Function #1
+2. shiftAndRotatePoint - Handling Rotations and shift of axes - Function #2
+3. foo1 - Supplementary function #1 for generatePoints method - Line case 
+4. foo2 - Supplementary function #1 for generatePoints method - Ellipse case
+5. foo3 - Supplementary function #1 for fillColor method
+6. generatePoints - Supplementary function #1 for outputBMP method
+-- Code to generate the array of points in a picture given the picture as input
+7. getBinaryArray - Supplementary function #2 for outputBMP method
+-- Take a list of Pictures and output the vector of raster image data
+8. zeroArray - Give an empty array of given length
+-- Used to create a blank image
+9. outputBMP - Function to write the final bmp image of all the pictures fed by the user
+-- The drawing area and hence the size of the bmp image is assumed to be 600*600 pixels
+-- Fixed sized image 568 pixels *383 pixels
+10. filter_f_1 - Supplementary function #2 for fillColor method
+11. filter_f_2 - Supplementary function #3 for fillColor method
+12. groups -Splits a list into groups of a given length
+-- The output is a list os lists of the given length
+13. fillColor - fillColor fills the figure starting at the point given to it until it encounters a black pixel barrier
+-- Uses the "flood fill" algorithm to fill up blank space in the figure from the starting point
+-- DFS approach used	
